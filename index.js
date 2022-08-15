@@ -141,3 +141,140 @@ const nnm=new student({
 // { "_id" : ObjectId("62fa73ed2ab171c8d711cd05"), "name" : "Yash Sudhakar Jogdand", "pincode" : 411005, "college" : "COEP", "email" : "jogdandys19.extc@coep.ac.in", "__v" : 0 }
 // >
 //
+
+// now read with help of mongodb
+// model name and then find function
+// here model name works like the collections
+// console.log("content of the cat collection is ::")
+// cat.find(function(err,cats){
+//
+//   if (err) {
+//     console.log(err)
+//   }
+//   else {
+//     console.log(cats);
+//   }
+// });
+
+// console.log("content of the student collection is ::")
+student.find(function(err,students){
+  if (err) {
+    console.log(err)
+    // it is good practise to close the server after you finished using it
+    // close should be after last operation you done with  mongoose
+    // mongoose.collection.close()
+  }
+  else {
+    // mongoose.collection.close()
+    // console.log(students);
+    for(let i=0;i<students.length;i++){
+      console.log(students[i].name)
+      // ┌──(ghansham㉿terminal)-[~/Mongoose]
+      // └─$ node index.js
+      // Adesh Kiran Gaikwad
+      // Yash Sudhakar Jogdand
+      // Adesh Kiran Gaikwad
+      // Ghansham Rajaram Salunkhe
+      // Yash Sudhakar Jogdand
+      // Noone
+      // jaydeep
+      // Adesh Kiran Gaikwad
+      // Ghansham Rajaram Salunkhe
+      // Adesh Kiran Gaikwad
+      // Yash Sudhakar Jogdand
+    }
+    // it is good practise to close the server after you finished using it
+    // close should be after last operation you done with  mongoose
+
+  }
+});
+
+// output
+// [
+//   {
+//     _id: new ObjectId("62fa709d8b70547141c99a83"),
+//     name: 'Adesh Kiran Gaikwad',
+//     college: 'Fergusson',
+//     email: 'nikhilMore123@gmail.com',
+//     __v: 0
+//   },
+//   {
+//     _id: new ObjectId("62fa709d8b70547141c99a82"),
+//     name: 'Yash Sudhakar Jogdand',
+//     pincode: 411005,
+//     college: 'COEP',
+//     email: 'jogdandys19.extc@coep.ac.in',
+//     __v: 0
+//   },
+//   {
+//     _id: new ObjectId("62fa709d8b70547141c99a81"),
+//     name: 'Adesh Kiran Gaikwad',
+//     mis: 11191002,
+//     pincode: 411005,
+//     college: 'COEP',
+//     email: 'gaikwadak19.meta@coep.ac.in',
+//     __v: 0
+//   },
+//   {
+//     _id: new ObjectId("62fa709d8b70547141c99a80"),
+//     name: 'Ghansham Rajaram Salunkhe',
+//     mis: 111903033,
+//     pincode: 413109,
+//     college: 'COEP',
+//     email: 'salukhegr1712@gmail.com',
+//     __v: 0
+//   },
+//   {
+//     _id: new ObjectId("62fa72caad8cda83de72b758"),
+//     name: 'Yash Sudhakar Jogdand',
+//     pincode: 411005,
+//     college: 'COEP',
+//     email: 'jogdandys19.extc@coep.ac.in',
+//     __v: 0
+//   },
+//   { _id: new ObjectId("62fa732fa719aeca9309e270"), name: 'Noone' },
+//   { _id: new ObjectId("62fa736da719aeca9309e271"), name: 'jaydeep' },
+//   {
+//     _id: new ObjectId("62fa73ed2ab171c8d711cd04"),
+//     name: 'Adesh Kiran Gaikwad',
+//     mis: 11191002,
+//     pincode: 411005,
+//     college: 'COEP',
+//     email: 'gaikwadak19.meta@coep.ac.in',
+//     __v: 0
+//   },
+//   {
+//     _id: new ObjectId("62fa73ed2ab171c8d711cd03"),
+//     name: 'Ghansham Rajaram Salunkhe',
+//     mis: 111903033,
+//     pincode: 413109,
+//     college: 'COEP',
+//     email: 'salukhegr1712@gmail.com',
+//     __v: 0
+//   },
+//   {
+//     _id: new ObjectId("62fa73ed2ab171c8d711cd06"),
+//     name: 'Adesh Kiran Gaikwad',
+//     college: 'Fergusson',
+//     email: 'nikhilMore123@gmail.com',
+//     __v: 0
+//   },
+//   {
+//     _id: new ObjectId("62fa73ed2ab171c8d711cd05"),
+//     name: 'Yash Sudhakar Jogdand',
+//     pincode: 411005,
+//     college: 'COEP',
+//     email: 'jogdandys19.extc@coep.ac.in',
+//     __v: 0
+//   }
+// ]
+// [
+//   {
+//     _id: new ObjectId("62fa6d10f13d033e9f8350f9"),
+//     name: 'mani',
+//     color: 'orange-white',
+//     age: 20,
+//     type: 'normal',
+//     __v: 0
+//   }
+// ]
