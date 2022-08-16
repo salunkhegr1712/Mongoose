@@ -23,7 +23,7 @@ const cat1=new cat({
   age:20,
   type:"normal",
 })
-// shell code after inserting cat database
+// shell code after inserting cat database( nothing just for comiit)
 // cat1.save();
 // ouput from mongoshell
 // > show dbs
