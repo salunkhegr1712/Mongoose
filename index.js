@@ -416,9 +416,9 @@ const nnm=new student({
 // { "_id" : ObjectId("62fa73ed2ab171c8d711cd04"), "name" : "tula kai karayche ahe", "mis" : 11191002, "pincode" : 411005, "college" : "COEP", "email" : "gaikwadak19.meta@coep.ac.in", "__v" : 0 }
 // { "_id" : ObjectId("62fa73ed2ab171c8d711cd06"), "name" : "tula kai karayche ahe", "college" : "Fergusson", "email" : "nikhilMore123@gmail.com", "__v" : 0 }
 
-student.deleteOne({name:"jaydeep"},function(err){
-  console.log(err);
-})
+// student.deleteOne({name:"jaydeep"},function(err){
+//   console.log(err);
+// })
 
 // > use cat
 // switched to db cat
@@ -429,3 +429,51 @@ student.deleteOne({name:"jaydeep"},function(err){
 // { "_id" : ObjectId("62fa73ed2ab171c8d711cd04"), "name" : "tula kai karayche ahe", "mis" : 11191002, "pincode" : 411005, "college" : "COEP", "email" : "gaikwadak19.meta@coep.ac.in", "__v" : 0 }
 // { "_id" : ObjectId("62fa73ed2ab171c8d711cd06"), "name" : "tula kai karayche ahe", "college" : "Fergusson", "email" : "nikhilMore123@gmail.com", "__v" : 0 }
 // >
+
+// establishing relations witin models
+const fruitSchema=mongoose.Schema({
+//make name field mandatory
+  name:{
+  type:String,
+  required:true},
+  taste:String,
+  price:Number
+})
+
+//so create a person schema and use fruit schema in itself
+
+const humanSchema=mongoose.Schema({
+//make name field mandatory
+  name:{
+  type:String,
+  required:true},
+  //embedding fruit schema in human schema
+  favouriteFruit:fruitSchema,
+})
+
+const human=mongoose.model("human",humanSchema);
+
+const h1=new human({
+  name:"ghansham",
+  favouriteFruit:{
+    name:"apple",
+    taste:"sweet",
+    price:30
+  }
+})
+
+h1.save()
+
+// mongoose intelligently make plural of the model name
+//
+// > use cat
+// switched to db cat
+// > show collections
+// cats
+// humen
+// mobiles
+// students
+// > db.humen.find()
+// { "_id" : ObjectId("62fce578585c595c8df2b85e"), "name" : "ghansham", "favouriteFruit" : { "name" : "apple", "taste" : "sweet", "price" : 30, "_id" : ObjectId("62fce578585c595c8df2b85f") }, "__v" : 0 }
+// >
+//

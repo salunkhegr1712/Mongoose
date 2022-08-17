@@ -1,0 +1,42 @@
+
+// deletion in mongoose
+// await Character.deleteOne({ name: 'Eddard Stark' }); // returns {deletedCount: 1}
+// student.deleteMany({name:"Yash Sudhakar Jogdand"},function(err) {
+//   if (err) {
+//     console.log(error);
+//   }
+//   else {
+//     console.log("success");
+//   }
+// });
+//
+// student.find(function(err,students){
+//   if (err) {
+//     console.log("error");
+//   }
+//   else {
+//     console.log(students);
+//   }
+// })
+//
+// > db.students.find()
+// { "_id" : ObjectId("62fa709d8b70547141c99a83"), "name" : "tula kai karayche ahe", "college" : "Fergusson", "email" : "nikhilMore123@gmail.com", "__v" : 0 }
+// { "_id" : ObjectId("62fa709d8b70547141c99a81"), "name" : "tula kai karayche ahe", "mis" : 11191002, "pincode" : 411005, "college" : "COEP", "email" : "gaikwadak19.meta@coep.ac.in", "__v" : 0 }
+// { "_id" : ObjectId("62fa732fa719aeca9309e270"), "name" : "Noone" }
+// { "_id" : ObjectId("62fa736da719aeca9309e271"), "name" : "jaydeep" }
+// { "_id" : ObjectId("62fa73ed2ab171c8d711cd04"), "name" : "tula kai karayche ahe", "mis" : 11191002, "pincode" : 411005, "college" : "COEP", "email" : "gaikwadak19.meta@coep.ac.in", "__v" : 0 }
+// { "_id" : ObjectId("62fa73ed2ab171c8d711cd06"), "name" : "tula kai karayche ahe", "college" : "Fergusson", "email" : "nikhilMore123@gmail.com", "__v" : 0 }
+
+student.deleteOne({name:"jaydeep"},function(err){
+  console.log(err);
+})
+
+// > use cat
+// switched to db cat
+// > db.students.find()
+// { "_id" : ObjectId("62fa709d8b70547141c99a83"), "name" : "tula kai karayche ahe", "college" : "Fergusson", "email" : "nikhilMore123@gmail.com", "__v" : 0 }
+// { "_id" : ObjectId("62fa709d8b70547141c99a81"), "name" : "tula kai karayche ahe", "mis" : 11191002, "pincode" : 411005, "college" : "COEP", "email" : "gaikwadak19.meta@coep.ac.in", "__v" : 0 }
+// { "_id" : ObjectId("62fa732fa719aeca9309e270"), "name" : "Noone" }
+// { "_id" : ObjectId("62fa73ed2ab171c8d711cd04"), "name" : "tula kai karayche ahe", "mis" : 11191002, "pincode" : 411005, "college" : "COEP", "email" : "gaikwadak19.meta@coep.ac.in", "__v" : 0 }
+// { "_id" : ObjectId("62fa73ed2ab171c8d711cd06"), "name" : "tula kai karayche ahe", "college" : "Fergusson", "email" : "nikhilMore123@gmail.com", "__v" : 0 }
+// >

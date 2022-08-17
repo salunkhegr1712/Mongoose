@@ -1,0 +1,36 @@
+update take three arguments which are query change to what object and a callback function inorder to push back the error
+
+// student.updateMany({$or :[{name:"Adesh Kiran Gaikwad"},{name:"Ghansham Rajaram Salunkhe"}]},{name:"tula kai karayche ahe"},function(error){
+//   if (error) {
+//     console.log(error);
+//   }
+//   else {
+//     console.log("success");
+//   }
+// });
+// > db.cats.find()
+// { "_id" : ObjectId("62fa6d10f13d033e9f8350f9"), "name" : "maniBal", "color" : "orange-white", "age" : 20, "type" : "normal", "__v" : 0 }
+
+// success
+// success
+// [
+//   {
+//     _id: new ObjectId("62fa6d10f13d033e9f8350f9"),
+//     name: 'maniBal',
+//     color: 'orange-white',
+//     age: 20,
+//     type: 'normal',
+//     __v: 0
+//   }
+// ]
+// tula kai karayche ahe
+// Yash Sudhakar Jogdand
+// tula kai karayche ahe
+// tula kai karayche ahe
+// Yash Sudhakar Jogdand
+// Noone
+// jaydeep
+// tula kai karayche ahe
+// tula kai karayche ahe
+// tula kai karayche ahe
+// Yash Sudhakar Jogdand

@@ -1,0 +1,30 @@
+    using save function
+    const nnm=new student({
+      name:"Adesh Kiran Gaikwad",
+      college:"Fergusson",
+      email:"nikhilMore123@gmail.com",
+    })
+    // nikhil.save()
+
+    using insertOneFunction
+
+
+    // student.insertMany([akg,grs,nnm,yj],function(err){
+    //   console.log(err);
+    // });
+    //
+    // switched to db cat
+    // > db.students.find()
+    // { "_id" : ObjectId("62fa709d8b70547141c99a83"), "name" : "Adesh Kiran Gaikwad", "college" : "Fergusson", "email" : "nikhilMore123@gmail.com", "__v" : 0 }
+    // { "_id" : ObjectId("62fa709d8b70547141c99a82"), "name" : "Yash Sudhakar Jogdand", "pincode" : 411005, "college" : "COEP", "email" : "jogdandys19.extc@coep.ac.in", "__v" : 0 }
+    // { "_id" : ObjectId("62fa709d8b70547141c99a81"), "name" : "Adesh Kiran Gaikwad", "mis" : 11191002, "pincode" : 411005, "college" : "COEP", "email" : "gaikwadak19.meta@coep.ac.in", "__v" : 0 }
+    // { "_id" : ObjectId("62fa709d8b70547141c99a80"), "name" : "Ghansham Rajaram Salunkhe", "mis" : 111903033, "pincode" : 413109, "college" : "COEP", "email" : "salukhegr1712@gmail.com", "__v" : 0 }
+    // { "_id" : ObjectId("62fa72caad8cda83de72b758"), "name" : "Yash Sudhakar Jogdand", "pincode" : 411005, "college" : "COEP", "email" : "jogdandys19.extc@coep.ac.in", "__v" : 0 }
+    // { "_id" : ObjectId("62fa732fa719aeca9309e270"), "name" : "Noone" }
+    // { "_id" : ObjectId("62fa736da719aeca9309e271"), "name" : "jaydeep" }
+    // { "_id" : ObjectId("62fa73ed2ab171c8d711cd04"), "name" : "Adesh Kiran Gaikwad", "mis" : 11191002, "pincode" : 411005, "college" : "COEP", "email" : "gaikwadak19.meta@coep.ac.in", "__v" : 0 }
+    // { "_id" : ObjectId("62fa73ed2ab171c8d711cd03"), "name" : "Ghansham Rajaram Salunkhe", "mis" : 111903033, "pincode" : 413109, "college" : "COEP", "email" : "salukhegr1712@gmail.com", "__v" : 0 }
+    // { "_id" : ObjectId("62fa73ed2ab171c8d711cd06"), "name" : "Adesh Kiran Gaikwad", "college" : "Fergusson", "email" : "nikhilMore123@gmail.com", "__v" : 0 }
+    // { "_id" : ObjectId("62fa73ed2ab171c8d711cd05"), "name" : "Yash Sudhakar Jogdand", "pincode" : 411005, "college" : "COEP", "email" : "jogdandys19.extc@coep.ac.in", "__v" : 0 }
+    // >
+    //

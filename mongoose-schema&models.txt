@@ -1,0 +1,21 @@
+// so just at first time lets create a schema and then we will going to create a model for which that created schema we are going to implement
+
+// here we are declaring the schema of the catschema which we are going to use further inorder to make model based on  cat
+
+const catSchema=mongoose.Schema({
+  // we will parse the attribute and the type of attribute inside the main mongoose.Schema
+  // 3 main datatypes in js 1)Number 2)Stribg 3)Boolean
+  name:String,
+  color:String,
+  age:Number,
+  type:String,
+})
+
+const cat= mongoose.model("cat",catSchema);
+
+const cat1=new cat({
+  name:"mani",
+  color:"orange-white",
+  age:20,
+  type:"normal",
+})

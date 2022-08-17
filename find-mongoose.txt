@@ -1,0 +1,47 @@
+
+find has 2 attribute a model return value and and error indicator
+
+// cat.find(function(err,cats){
+//
+//   if (err) {
+//     console.log(err)
+//   }
+//   else {
+//     console.log(cats);
+//   }
+// });
+
+// switched to db cat
+
+
+// student.find(function(err,students){
+//   if (err) {
+//     console.log(err)
+//     // it is good practise to close the server after you finished using it
+//     // close should be after last operation you done with  mongoose
+//     // mongoose.collection.close()
+//   }
+//   else {
+//     // mongoose.collection.close()
+//     // console.log(students);
+//     for(let i=0;i<students.length;i++){
+//       console.log(students[i].name)
+//       // ┌──(ghansham㉿terminal)-[~/Mongoose]
+//       // └─$ node index.js
+//       // Adesh Kiran Gaikwad
+//       // Yash Sudhakar Jogdand
+//       // Adesh Kiran Gaikwad
+//       // Ghansham Rajaram Salunkhe
+//       // Yash Sudhakar Jogdand
+//       // Noone
+//       // jaydeep
+//       // Adesh Kiran Gaikwad
+//       // Ghansham Rajaram Salunkhe
+//       // Adesh Kiran Gaikwad
+//       // Yash Sudhakar Jogdand
+//     }
+//     // it is good practise to close the server after you finished using it
+//     // close should be after last operation you done with  mongoose
+//
+//   }
+// });
