@@ -23,7 +23,7 @@ const cat1=new cat({
   age:20,
   type:"normal",
 })
-// shell code after inserting cat database( nothing just for comiit)
+// shell code after inserting cat database
 // cat1.save();
 // ouput from mongoshell
 // > show dbs
@@ -157,37 +157,37 @@ const nnm=new student({
 // });
 
 // console.log("content of the student collection is ::")
-student.find(function(err,students){
-  if (err) {
-    console.log(err)
-    // it is good practise to close the server after you finished using it
-    // close should be after last operation you done with  mongoose
-    // mongoose.collection.close()
-  }
-  else {
-    // mongoose.collection.close()
-    // console.log(students);
-    for(let i=0;i<students.length;i++){
-      console.log(students[i].name)
-      // ┌──(ghansham㉿terminal)-[~/Mongoose]
-      // └─$ node index.js
-      // Adesh Kiran Gaikwad
-      // Yash Sudhakar Jogdand
-      // Adesh Kiran Gaikwad
-      // Ghansham Rajaram Salunkhe
-      // Yash Sudhakar Jogdand
-      // Noone
-      // jaydeep
-      // Adesh Kiran Gaikwad
-      // Ghansham Rajaram Salunkhe
-      // Adesh Kiran Gaikwad
-      // Yash Sudhakar Jogdand
-    }
-    // it is good practise to close the server after you finished using it
-    // close should be after last operation you done with  mongoose
-
-  }
-});
+// student.find(function(err,students){
+//   if (err) {
+//     console.log(err)
+//     // it is good practise to close the server after you finished using it
+//     // close should be after last operation you done with  mongoose
+//     // mongoose.collection.close()
+//   }
+//   else {
+//     // mongoose.collection.close()
+//     // console.log(students);
+//     for(let i=0;i<students.length;i++){
+//       console.log(students[i].name)
+//       // ┌──(ghansham㉿terminal)-[~/Mongoose]
+//       // └─$ node index.js
+//       // Adesh Kiran Gaikwad
+//       // Yash Sudhakar Jogdand
+//       // Adesh Kiran Gaikwad
+//       // Ghansham Rajaram Salunkhe
+//       // Yash Sudhakar Jogdand
+//       // Noone
+//       // jaydeep
+//       // Adesh Kiran Gaikwad
+//       // Ghansham Rajaram Salunkhe
+//       // Adesh Kiran Gaikwad
+//       // Yash Sudhakar Jogdand
+//     }
+//     // it is good practise to close the server after you finished using it
+//     // close should be after last operation you done with  mongoose
+//
+//   }
+// });
 
 // output
 // [
@@ -278,3 +278,68 @@ student.find(function(err,students){
 //     __v: 0
 //   }
 // ]
+
+
+// lets make another model having data validation constrainst on them
+
+const mobileSchema=mongoose.Schema({
+  name:{
+    type:String,
+    // required will make that field mandatory
+    required:true,
+  },
+  price:Number,
+  rating:{
+
+    type:Number,
+    // add constrainst on the value so you will only see values within 1 to 10 range
+    min:1,
+    max:10,
+  }
+
+});
+
+// so lets create a modelrealted to newly created schema
+
+const Mobile=mongoose.model("mobile",mobileSchema);
+
+const f1=new Mobile({name:"poco f1",price:10000,rating:1})
+const iqooz3=new Mobile({name:"Z3",price:20000,rating:8})
+// name: ValidatorError: Path `name` is required.
+//        at validate (/home/ghansham/Mongoose/node_modules/mongoose/lib/schematype.js:1337:13)
+//        at SchemaString.SchemaType.doValidate (/home/ghansham/Mongoose/node_modules/mongoose/lib/schematype.js:1321:7)
+//        at /home/ghansham/Mongoose/node_modules/mongoose/lib/document.js:2831:18
+
+
+Mobile.insertMany([f1,iqooz3],function(err){
+  console.log(err);
+})
+
+
+// data va;idation error if rating is 11
+// └─$ node index.js
+// Error: mobile validation failed: rating: Path `rating` (11) is more than maximum allowed value (10).
+//     at ValidationError.inspect (/home/ghansham/Mongoose/node_modules/mongoose/lib/error/validation.js:48:26)
+//     at formatValue (node:internal/util/inspect:782:19)
+//     at inspect (node:internal/util/inspect:347:10)
+//     at formatWithOptionsInternal (node:internal/util/inspect:2167:40)
+//     at formatWithOptions (node:internal/util/inspect:2029:10)
+//     at console.value (node:internal/console/constructor:324:14)
+//     at console.log (node:internal/console/constructor:360:61)
+//     at /home/ghansham/Mongoose/index.js:310:11
+//     at /home/ghansham/Mongoose/node_modules/mongoose/lib/helpers/promiseOrCallback.js:18:13
+//     at /home/ghansham/Mongoose/node_modules/mongoose/lib/model.js:5095:18 {
+//   errors: {
+//     rating: ValidatorError: Path `rating` (11) is more than maximum allowed value (10).
+//         at validate (/home/ghansham/Mongoose/node_modules/mongoose/lib/schematype.js:1337:13)
+//         at SchemaNumber.SchemaType.doValidate (/home/ghansham/Mongoose/node_modules/mongoose/lib/schematype.js:1321:7)
+//         at /home/ghansham/Mongoose/node_modules/mongoose/lib/document.js:2831:18
+//
+// succesfull insertion at last
+// > db.mobiles.find()
+// { "_id" : ObjectId("62fa85166eac0ebfb11b1132"), "name" : "poco f1", "price" : 10000, "rating" : 1, "__v" : 0 }
+// { "_id" : ObjectId("62fa85166eac0ebfb11b1133"), "name" : "Z3", "price" : 20000, "rating" : 8, "__v" : 0 }
+// >
+
+// how to perform deletion and the update both
+model.updateOne(query,what_to_change,callback_function_which_has_errorAsParameter)
