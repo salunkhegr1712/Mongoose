@@ -440,6 +440,9 @@ const fruitSchema=mongoose.Schema({
   price:Number
 })
 
+const fruit=mongoose.model("fruit",fruitSchema);
+
+
 //so create a person schema and use fruit schema in itself
 
 const humanSchema=mongoose.Schema({
@@ -455,25 +458,39 @@ const human=mongoose.model("human",humanSchema);
 
 const h1=new human({
   name:"ghansham",
-  favouriteFruit:{
+  // this is one way
+  favouriteFruit:
+  {
     name:"apple",
     taste:"sweet",
-    price:30
+    price:670
   }
 })
-
-h1.save()
 
 // mongoose intelligently make plural of the model name
 //
 // > use cat
 // switched to db cat
 // > show collections
-// cats
-// humen
-// mobiles
-// students
-// > db.humen.find()
-// { "_id" : ObjectId("62fce578585c595c8df2b85e"), "name" : "ghansham", "favouriteFruit" : { "name" : "apple", "taste" : "sweet", "price" : 30, "_id" : ObjectId("62fce578585c595c8df2b85f") }, "__v" : 0 }
-// >
-//
+
+// there is another way of doing it
+const pineapple=new fruit(
+  {
+    name:"pineapple",
+    taste:"sweet",
+    price:20
+  }
+)
+const h2=new human({
+  name:"Adesh",
+  favouriteFruit:pineapple,
+})
+
+h2.save()
+
+> use cat
+switched to db cat
+> db.humen.find()
+{ "_id" : ObjectId("62fce578585c595c8df2b85e"), "name" : "ghansham", "favouriteFruit" : { "name" : "apple", "taste" : "sweet", "price" : 30, "_id" : ObjectId("62fce578585c595c8df2b85f") }, "__v" : 0 }
+{ "_id" : ObjectId("62fce72314f0c8c0e7e8d398"), "name" : "Adesh", "favouriteFruit" : { "name" : "pineapple", "taste" : "sweet", "price" : 20, "_id" : ObjectId("62fce72314f0c8c0e7e8d397") }, "__v" : 0 }
+>
