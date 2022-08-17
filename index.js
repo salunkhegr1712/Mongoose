@@ -281,39 +281,39 @@ const nnm=new student({
 
 
 // lets make another model having data validation constrainst on them
-
-const mobileSchema=mongoose.Schema({
-  name:{
-    type:String,
-    // required will make that field mandatory
-    required:true,
-  },
-  price:Number,
-  rating:{
-
-    type:Number,
-    // add constrainst on the value so you will only see values within 1 to 10 range
-    min:1,
-    max:10,
-  }
-
-});
-
-// so lets create a modelrealted to newly created schema
-
-const Mobile=mongoose.model("mobile",mobileSchema);
-
-const f1=new Mobile({name:"poco f1",price:10000,rating:1})
-const iqooz3=new Mobile({name:"Z3",price:20000,rating:8})
-// name: ValidatorError: Path `name` is required.
-//        at validate (/home/ghansham/Mongoose/node_modules/mongoose/lib/schematype.js:1337:13)
-//        at SchemaString.SchemaType.doValidate (/home/ghansham/Mongoose/node_modules/mongoose/lib/schematype.js:1321:7)
-//        at /home/ghansham/Mongoose/node_modules/mongoose/lib/document.js:2831:18
-
-
-Mobile.insertMany([f1,iqooz3],function(err){
-  console.log(err);
-})
+//
+// const mobileSchema=mongoose.Schema({
+//   name:{
+//     type:String,
+//     // required will make that field mandatory
+//     required:true,
+//   },
+//   price:Number,
+//   rating:{
+//
+//     type:Number,
+//     // add constrainst on the value so you will only see values within 1 to 10 range
+//     min:1,
+//     max:10,
+//   }
+//
+// });
+//
+// // so lets create a modelrealted to newly created schema
+//
+// const Mobile=mongoose.model("mobile",mobileSchema);
+//
+// const f1=new Mobile({name:"poco f1",price:10000,rating:1})
+// const iqooz3=new Mobile({name:"Z3",price:20000,rating:8})
+// // name: ValidatorError: Path `name` is required.
+// //        at validate (/home/ghansham/Mongoose/node_modules/mongoose/lib/schematype.js:1337:13)
+// //        at SchemaString.SchemaType.doValidate (/home/ghansham/Mongoose/node_modules/mongoose/lib/schematype.js:1321:7)
+// //        at /home/ghansham/Mongoose/node_modules/mongoose/lib/document.js:2831:18
+//
+//
+// Mobile.insertMany([f1,iqooz3],function(err){
+//   console.log(err);
+// })
 
 
 // data va;idation error if rating is 11
@@ -342,4 +342,90 @@ Mobile.insertMany([f1,iqooz3],function(err){
 // >
 
 // how to perform deletion and the update both
-model.updateOne(query,what_to_change,callback_function_which_has_errorAsParameter)
+// model.updateOne(query,what_to_change,callback_function_which_has_errorAsParameter)
+
+// cat.updateOne({name:"mani"},{name:"maniBal"},function(error){
+//   if (error) {
+//     console.log(error);
+//   }
+//   else {
+//     console.log("success");
+//   }
+// });
+//
+// student.updateMany({$or :[{name:"Adesh Kiran Gaikwad"},{name:"Ghansham Rajaram Salunkhe"}]},{name:"tula kai karayche ahe"},function(error){
+//   if (error) {
+//     console.log(error);
+//   }
+//   else {
+//     console.log("success");
+//   }
+// });
+// > db.cats.find()
+// { "_id" : ObjectId("62fa6d10f13d033e9f8350f9"), "name" : "maniBal", "color" : "orange-white", "age" : 20, "type" : "normal", "__v" : 0 }
+
+// success
+// success
+// [
+//   {
+//     _id: new ObjectId("62fa6d10f13d033e9f8350f9"),
+//     name: 'maniBal',
+//     color: 'orange-white',
+//     age: 20,
+//     type: 'normal',
+//     __v: 0
+//   }
+// ]
+// tula kai karayche ahe
+// Yash Sudhakar Jogdand
+// tula kai karayche ahe
+// tula kai karayche ahe
+// Yash Sudhakar Jogdand
+// Noone
+// jaydeep
+// tula kai karayche ahe
+// tula kai karayche ahe
+// tula kai karayche ahe
+// Yash Sudhakar Jogdand
+
+// deletion in mongoose
+// await Character.deleteOne({ name: 'Eddard Stark' }); // returns {deletedCount: 1}
+// student.deleteMany({name:"Yash Sudhakar Jogdand"},function(err) {
+//   if (err) {
+//     console.log(error);
+//   }
+//   else {
+//     console.log("success");
+//   }
+// });
+//
+// student.find(function(err,students){
+//   if (err) {
+//     console.log("error");
+//   }
+//   else {
+//     console.log(students);
+//   }
+// })
+//
+// > db.students.find()
+// { "_id" : ObjectId("62fa709d8b70547141c99a83"), "name" : "tula kai karayche ahe", "college" : "Fergusson", "email" : "nikhilMore123@gmail.com", "__v" : 0 }
+// { "_id" : ObjectId("62fa709d8b70547141c99a81"), "name" : "tula kai karayche ahe", "mis" : 11191002, "pincode" : 411005, "college" : "COEP", "email" : "gaikwadak19.meta@coep.ac.in", "__v" : 0 }
+// { "_id" : ObjectId("62fa732fa719aeca9309e270"), "name" : "Noone" }
+// { "_id" : ObjectId("62fa736da719aeca9309e271"), "name" : "jaydeep" }
+// { "_id" : ObjectId("62fa73ed2ab171c8d711cd04"), "name" : "tula kai karayche ahe", "mis" : 11191002, "pincode" : 411005, "college" : "COEP", "email" : "gaikwadak19.meta@coep.ac.in", "__v" : 0 }
+// { "_id" : ObjectId("62fa73ed2ab171c8d711cd06"), "name" : "tula kai karayche ahe", "college" : "Fergusson", "email" : "nikhilMore123@gmail.com", "__v" : 0 }
+
+student.deleteOne({name:"jaydeep"},function(err){
+  console.log(err);
+})
+
+// > use cat
+// switched to db cat
+// > db.students.find()
+// { "_id" : ObjectId("62fa709d8b70547141c99a83"), "name" : "tula kai karayche ahe", "college" : "Fergusson", "email" : "nikhilMore123@gmail.com", "__v" : 0 }
+// { "_id" : ObjectId("62fa709d8b70547141c99a81"), "name" : "tula kai karayche ahe", "mis" : 11191002, "pincode" : 411005, "college" : "COEP", "email" : "gaikwadak19.meta@coep.ac.in", "__v" : 0 }
+// { "_id" : ObjectId("62fa732fa719aeca9309e270"), "name" : "Noone" }
+// { "_id" : ObjectId("62fa73ed2ab171c8d711cd04"), "name" : "tula kai karayche ahe", "mis" : 11191002, "pincode" : 411005, "college" : "COEP", "email" : "gaikwadak19.meta@coep.ac.in", "__v" : 0 }
+// { "_id" : ObjectId("62fa73ed2ab171c8d711cd06"), "name" : "tula kai karayche ahe", "college" : "Fergusson", "email" : "nikhilMore123@gmail.com", "__v" : 0 }
+// >
